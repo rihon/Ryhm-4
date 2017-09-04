@@ -1,3 +1,8 @@
-###Esimene kodutöö, töökeskkond
+Esimene kodutöö, töökeskkond
 Esimese asjana on vaja täiendada oma tunnis greeny serverisse loodud veebilehte (html fail).
 Selleks peate looma tunneli läbi lin2.tlu.ee serveri
+
+Paigaldage oma arvutisse WinSCP (või analoog SCP teenust pakkuv tarkvara). Selle jaoks on tunneli tegemise õpetus olemas.
+Laadige edale PUTTY.EXE fail (se ei vaja paigaldust, käivitub otse). Selle abil looge tunnel veebipuhvri kasutamiseks (juhend ülikooli infotehnoloogia osakonna juhendite lehel), et saaks kodus veebibrauseriga näha greeny lehti.
+
+Muutke oma index.html faili, lisage veel paar lõiku (element <p>). Veenduge, et muudatused on tehtud (vaadake brauseris). Võib olla WinSCP küsib salvestamisel parooli (alguses isegi tunneli ehk lin2 kasutajat ja parooli).
