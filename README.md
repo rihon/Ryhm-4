@@ -4,7 +4,7 @@
 
 * Windows | [VIDEO](https://youtu.be/kg5NAsRQAJ8)
 
-    * [Guide to create tunnel (in estonian, but with screenshots)](http://minitorn.tlu.ee/~jaagup/kool/java/kursused/09/veebipr/naited/greenytunnel/greenytunnel.pdf)
+    * [Putty tunneli tegemise õpetus (eesti keeles, ekraanitõmmistega)](http://minitorn.tlu.ee/~jaagup/kool/java/kursused/09/veebipr/naited/greenytunnel/greenytunnel.pdf)
 
 * Mac OS | [VIDEO](https://youtu.be/RJc-Gvpn9M4)
 ```
@@ -34,3 +34,6 @@ ssh greeny_username@greeny.cs.tlu.ee
     cd ..          – to exit folder to previous path
 
 ```
+
+### Kodus greeny serveris olevate veebilehtede brauseris vaatamiseks
+Vaadake tlu.ee kodulehel üksuste alajaotusest infotehnoloogia osakonda. Selle lehelt leiate vasakul menüüs "juhendid ja abimaterjalid" ning nende seas uurige "Tallinna Ülikooli veebipuhvri teenuse kasutamine väljaspool ülikooli arvutivõrku"!
