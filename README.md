@@ -1,5 +1,7 @@
 # Ryhm-4
 
+### Õppejõu tehtud asjad on * [siin] (http://greeny.cs.tlu.ee/~rinde/veebiprogrammeerimine_2017/Ryhm-4/) !
+
 ### Ühendus Greeny'sse
 
 * Windows | [VIDEO](https://youtu.be/kg5NAsRQAJ8)
