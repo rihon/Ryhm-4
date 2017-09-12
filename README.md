@@ -1,6 +1,6 @@
 # Ryhm-4
 
-### Õppejõu tehtud asjad on: * (http://greeny.cs.tlu.ee/~rinde/veebiprogrammeerimine_2017/Ryhm-4/) !
+### Õppejõu tehtud asjad on: (http://greeny.cs.tlu.ee/~rinde/veebiprogrammeerimine_2017/Ryhm-4/) !
 
 ### Ühendus Greeny'sse
 
