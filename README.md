@@ -1,8 +1,8 @@
 # Ryhm-4
 
-### Õppejõu tehtud asjad on: (http://greeny.cs.tlu.ee/~rinde/veebiprogrammeerimine_2017/Ryhm-4/)
+Õppejõu tehtud asjad on: (http://greeny.cs.tlu.ee/~rinde/veebiprogrammeerimine_2017/Ryhm-4/)
 
-### Fotosid leiab: (http://minitorn.tlu.ee/~rinde/media/fotod/TLU_600x400/)
+Fotosid leiab: (http://minitorn.tlu.ee/~rinde/media/fotod/TLU_600x400/)
 
 ### Ühendus Greeny'sse
 
