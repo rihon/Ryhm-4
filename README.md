@@ -2,6 +2,8 @@
 
 ### Õppejõu tehtud asjad on: (http://greeny.cs.tlu.ee/~rinde/veebiprogrammeerimine_2017/Ryhm-4/)
 
+### Fotosid leiab: (http://minitorn.tlu.ee/~rinde/media/fotod/TLU_600x400/)
+
 ### Ühendus Greeny'sse
 
 * Windows | [VIDEO](https://youtu.be/kg5NAsRQAJ8)
