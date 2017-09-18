@@ -2,12 +2,13 @@
 	//Muutujad
 	$myName = "Andrus";
 	$myFamilyName = "Rinde";
-	$practiceStarted = "2017-09-11 8.15";
+	//$practiceStarted = "2017-09-11 8.15";
+	$practiceStarted = date("d.m.Y") ." " ."8.15";
 	
 	//echo strtotime($practiceStarted);
 	//echo strtotime("now");
-	//$timePassed = strtotime("now") - strtotime($practiceStarted);
-	//echo $timePassed;
+	$timePassed = round((strtotime("now") - strtotime($practiceStarted)) / 60);
+	echo $timePassed;
 	
 	$hourNow = date("H");
 	$partOfDay = "";
@@ -15,8 +16,11 @@
 	if ($hourNow < 8){
 		$partOfDay = "varane hommik";
 	}
-	if ($hourNow >= 8){
+	if ($hourNow >= 8 and $hourNow < 16){
 		$partOfDay = "koolipäev";
+	}
+	if ($hourNow >= 16){
+		$partOfDay = "vaba aeg";
 	}
 	
 ?>
