@@ -1,0 +1,24 @@
+Teise koduse tööna looge oma kataloogi "tund3" täiesti uus fail "login.php".
+See loodav leht (fail) peab sisaldama kaht osa:
+
+1) kasutaja sisselogimise osa, millel on vorm, milles kolm html input elementi:
+Kasutajanime ehk e-posti aadressi sisestamiseks <input name="loginEmail" type="email">
+Kasutaja parooli sisestamiseks <input name="loginPassword" type="password">
+
+ja siis veel see type="submit" element.
+
+2) uue kasutaja loomise osa, millel on vorm, milles on :
+Kasutaja nime sisestamiseks <input name="signupFirstName" type="text"> ja <input name="signupFamilyName" type="text">
+Kasutaja soo sisestamiseks <input type="radio" name="gender" value="1"> ja <input type="radio" name="gender" value="2">
+Kasutajanime ehk e-postiaasressi sisestamiseks <input name="signupEmail" tyle="email">
+Kasutaja parooli sisestamiseks <input name="signupPassword" type="password">
+
+ja siis veel see type="submit" element.
+
+________________________
+Mõlema vormiga tuleb siduda pisut php koodi, et iga sisestuse järel peetaks meeles eelnev sisestus. Loomulikult ei ole vaja meeles pidada eelnevalt sisestatud parooli ehk siis nende väljadega meelespidamist ei toimu.
+Radio tüüpi input väljade puhul võib mõlemale kirjutada sisse php osa, mis kontrollib, kas sugu on just see, mis antud nupuga valiti ja siis echo abil kirjutaks ühe atribuudi juurde: "checked" (jah ainult ühe sõna).
+
+Loomulikult tuleks iga input välja ette lisadaka sobiv tekst <label> elemendiga.
+
+Edu kõigile!
