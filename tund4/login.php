@@ -1,8 +1,8 @@
 <?php
 	$signupFirstName = "";
 	$signupFamilyName = "";
-	$signupEmail = "";
 	$gender = "";
+	$signupEmail = "";
 	$signupBirthDay = null;
 	$signupBirthMonth = null;
 	$signupBirthYear = null;
@@ -37,6 +37,11 @@
 		}
 	}
 	
+	//kas sünnikuu on sisestatud
+	if ( isset($_POST["signupBirthMonth"]) ){
+		$signupBirthMonth = intval($_POST["signupBirthMonth"]);
+	}
+	
 	//kontrollime, kas kirjutati kasutajanimeks email
 	if (isset ($_POST["signupEmail"])){
 		if (empty ($_POST["signupEmail"])){
@@ -63,7 +68,21 @@
 			//$signupGenderError = " (Palun vali sobiv!) Määramata!";
 	}
 	
-
+	//Tekitame sünnikuu valiku
+	$signupMonthSelectHTML = "";
+	$monthNamesEt = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
+	$signupMonthSelectHTML .= '<select name="signupBirthMonth">' ."\n";
+	$signupMonthSelectHTML .= '<option value="" selected disabled>Vali sünnikuu</option>' ."\n";
+	foreach ($monthNamesEt as $key=>$month){
+		if ($key + 1 === $signupBirthMonth){
+			$signupMonthSelectHTML .= '<option value="' .($key + 1) .'" selected>' .$month .'</option>' ."\n";
+		} else {
+		$signupMonthSelectHTML .= '<option value="' .($key + 1) .'">' .$month .'</option>' ."\n";
+		}
+	}
+	$signupMonthSelectHTML .= "</select> \n";
+	
+	
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -93,11 +112,17 @@
 		<br>
 		<label>Perekonnanimi </label>
 		<input name="signupFamilyName" type="text" value="<?php echo $signupFamilyName; ?>">
-		<br><br>
-		<label>Sugu</label><span>
 		<br>
-		<input type="radio" name="gender" value="1" <?php if ($gender == '1') {echo 'checked';} ?>><label>Mees</label> <!-- Kõik läbi POST'i on string!!! -->
-		<input type="radio" name="gender" value="2" <?php if ($gender == '2') {echo 'checked';} ?>><label>Naine</label>
+		<label>Sisesta oma sünnikuupäev</label>
+		<?php
+			echo $signupMonthSelectHTML;
+		?>
+		
+		<br><br>
+		<label>Sugu</label>
+		<br>
+		<input type="radio" name="gender" value="1" <?php if ($gender == "1") {echo 'checked';} ?>><label>Mees</label> <!-- Kõik läbi POST'i on string!!! -->
+		<input type="radio" name="gender" value="2" <?php if ($gender == "2") {echo 'checked';} ?>><label>Naine</label>
 		<br><br>
 		
 		<label>Kasutajanimi (E-post)</label>
