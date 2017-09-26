@@ -1,0 +1,8 @@
+Kolmanda koduse tööna tuleb täiendada login.php faili.
+Praegu on see selliselt tööle seatud, et kui kasutaja (ehk siis meie ise) korralik on ja kõik nõutud väljad korrektselt täidab, siis õnnestub ka andmebaasi uue kasutaja lisamine.
+Programmi tuleb nii täiendada, et iga sisestuse kohta vigu jälgitaks. Ärge preagu laske end häirida asjaolust, kui mõnesid vigasid juba lehe esimesel laadimisel näidatakse, oluline on, et andmebaasi kirjutamine toimuks tõesti alles veatu sisestuse korral.
+Tunnis jäi enamusele ilmselt kohe ette ka viga/hoiatus, et parooli sisestuse välja pole justkui olemas, see oligi seetõttu, et parooli sisestuse vigu ei vaadatudki.
+
+Seega kõik "Error" lõpuga muutujad peaksid alguses olema tühjad ( ="" ) ja siis tuleks järjest if lausetega kontrollida, kas nad on seatud, ega väärtus pole tühi ...
+Kuupäeva puhul kontrollisime, kas sisestatud päev, kuu ja aasta annavad legaalse kuupäeva. Lisada oleks vaja teatada veast, kui ei saa õiget kuupäeva.
+Iga sisestusvälja juures peaks olema html-element (näiteks <span>), mille sisse php-ga viga teada antaks.
