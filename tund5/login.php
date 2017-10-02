@@ -1,5 +1,6 @@
 <?php
-	require("../../config.php");//vaata, et tunnis oleks õige
+	require("../../../vpconfig.php");
+	require("functions.php");
 	//echo $serverHost;
 
 	$signupFirstName = "";
@@ -31,12 +32,15 @@
 		}
 	}
 	
+	//Kõiki kasutaja loomise sisestusi kontrollitakse vaid, kui on vastavat nuppu klikitud
+	if(isset($_POST["signUpButton"])){
+	
 	//kontrollime, kas kirjutati eesnimi
 	if (isset ($_POST["signupFirstName"])){
 		if (empty($_POST["signupFirstName"])){
 			$signupFirstNameError ="NB! Väli on kohustuslik!";
 		} else {
-			$signupFirstName = $_POST["signupFirstName"];
+			$signupFirstName = test_input($_POST["signupFirstName"]);
 		}
 	}
 	
@@ -45,7 +49,7 @@
 		if (empty($_POST["signupFamilyName"])){
 			$signupFamilyNameError ="NB! Väli on kohustuslik!";
 		} else {
-			$signupFamilyName = $_POST["signupFamilyName"];
+			$signupFamilyName = test_input($_POST["signupFamilyName"]);
 		}
 	}
 	
@@ -88,7 +92,12 @@
 		if (empty ($_POST["signupEmail"])){
 			$signupEmailError ="NB! Väli on kohustuslik!";
 		} else {
-			$signupEmail = $_POST["signupEmail"];
+			//kutsun välja sisestuse kontrolli funktsiooni
+			$signupEmail = test_input($_POST["signupEmail"]);
+			$signupEmail = filter_var($signupEmail, FILTER_SANITIZE_EMAIL);
+			if(!filter_var($signupEmail, FILTER_VALIDATE_EMAIL)){
+				$signupEmailError ="NB! e-postiaadress pole nõutud kujul!";
+			}
 		}
 	}
 	
@@ -135,6 +144,7 @@
 		$mysqli->close();
 	}
 	
+	}//if kui oli vajutatud nuppu "Loo kasutaja"
 	
 	//Tekitame kuupäeva valiku
 	$signupDaySelectHTML = "";
@@ -179,7 +189,6 @@
 	}
 	$signupYearSelectHTML.= "</select> \n";
 	
-	
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -191,7 +200,7 @@
 	<h1>Logi sisse!</h1>
 	<p>Siin harjutame sisselogimise funktsionaalsust.</p>
 	
-	<form method="POST">
+	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 		<label>Kasutajanimi (E-post): </label>
 		<input name="loginEmail" type="email" value="<?php echo $loginEmail; ?>"><span><?php echo $loginEmailError; ?></span>
 		<br><br>
@@ -203,7 +212,7 @@
 	<h1>Loo kasutaja</h1>
 	<p>Kui pole veel kasutajat....</p>
 	
-	<form method="POST">
+	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 		<label>Eesnimi </label>
 		<input name="signupFirstName" type="text" value="<?php echo $signupFirstName; ?>">
 		<span><?php echo $signupFirstNameError; ?></span>
@@ -234,7 +243,7 @@
 		<br><br>
 
 		
-		<input type="submit" value="Loo kasutaja">
+		<input name="signUpButton" type="submit" value="Loo kasutaja">
 	</form>
 		
 </body>
