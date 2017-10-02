@@ -2,6 +2,12 @@
 	require("../../../vpconfig.php");
 	require("functions.php");
 	//echo $serverHost;
+	
+	//kui on sisseloginud, siis kohe main.php lehele
+	if (isset($_SESSION["userId"])){
+		header("Location: main.php");
+		exit();
+	}
 
 	$signupFirstName = "";
 	$signupFamilyName = "";
@@ -13,6 +19,7 @@
 	$signupBirthDate = "";
 	
 	$loginEmail = "";
+	$notice = "";
 
 	$signupFirstNameError = "";
 	$signupFamilyNameError = "";
@@ -23,14 +30,24 @@
 	
 	$loginEmailError ="";
 	
-	//kas on kasutajanimi sisestatud
-	if (isset ($_POST["loginEmail"])){
-		if (empty ($_POST["loginEmail"])){
-			$loginEmailError ="NB! Sisselogimiseks on vajalik kasutajatunnus (e-posti aadress)!";
-		} else {
-			$loginEmail = $_POST["loginEmail"];
+	//kas logitakse sisse
+	if (isset($_POST["loginButton"])){
+		
+		//kas on kasutajanimi sisestatud
+		if (isset ($_POST["loginEmail"])){
+			if (empty ($_POST["loginEmail"])){
+				$loginEmailError ="NB! Sisselogimiseks on vajalik kasutajatunnus (e-posti aadress)!";
+			} else {
+				$loginEmail = $_POST["loginEmail"];
+			}
 		}
-	}
+		
+		if(!empty($loginEmail) and !empty($_POST["loginPassword"])){
+			//echo "Login sisse!";
+			//kutsun sisselogimise funktsiooni
+			$notice = signIn($loginEmail, $_POST["loginPassword"]);
+		}
+	}//if loginButton
 	
 	//Kõiki kasutaja loomise sisestusi kontrollitakse vaid, kui on vastavat nuppu klikitud
 	if(isset($_POST["signUpButton"])){
@@ -124,24 +141,8 @@
 		//krüpteerin parooli
 		$signupPassword = hash("sha512", $_POST["signupPassword"]);
 		//echo "\n Parooli " .$_POST["signupPassword"] ." räsi on: " .$signupPassword;
-		//loome andmebaasiühenduse
-		$database = "if17_rinde";
-		$mysqli = new mysqli($serverHost, $serverUsername, $serverPassword, $database);
-		//valmistame ette käsu andmebaasiserverile
-		$stmt = $mysqli->prepare("INSERT INTO vpusers (firstname, lastname, birthday, gender, email, password) VALUES (?, ?, ?, ?, ?, ?)");
-		echo $mysqli->error;
-		//s - string
-		//i - integer
-		//d - decimal
-		$stmt->bind_param("sssiss", $signupFirstName, $signupFamilyName, $signupBirthDate, $gender, $signupEmail, $signupPassword);
-		//$stmt->execute();
-		if ($stmt->execute()){
-			echo "\n Õnnestus!";
-		} else {
-			echo "\n Tekkis viga : " .$stmt->error;
-		}
-		$stmt->close();
-		$mysqli->close();
+		//kutsume välja kasutaja salvestamise funktsiooni
+		signuUp($signupFirstName, $signupFamilyName, $signupBirthDate, $gender, $signupEmail, $signupPassword);
 	}
 	
 	}//if kui oli vajutatud nuppu "Loo kasutaja"
@@ -206,7 +207,7 @@
 		<br><br>
 		<input name="loginPassword" placeholder="Salasõna" type="password"><span></span>
 		<br><br>
-		<input type="submit" value="Logi sisse">
+		<input name="loginButton" type="submit" value="Logi sisse"><span><?php echo $notice; ?></span>
 	</form>
 	
 	<h1>Loo kasutaja</h1>
