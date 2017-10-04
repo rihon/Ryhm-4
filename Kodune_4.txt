@@ -1,0 +1,8 @@
+Kodus tuleb tunnis valmis saadud veebilehte muuta nii:
+1) sisselogimisel näidataks pealehel pealkirjas (h1) sisseloginud kasutaja ees ja perekonnanime.
+2) lehel usersInfo.php näidataks tabelina kõiki registreeritud kasutajaid. Tabelis peab olema näha eesnimi, perekonnanimi, e-posti aadress, sünnipäev ja sugu (mees või naine, mitte number).
+
+Kõigi kasutajate kuvamisel tuleb iga kasutaja kohta luua tabeli rida. Selleks tuleb lugeda tabelist vajalikud andmed ning seejärel kasutada while tsüklit, mida täidetakse kuni veel on mõni kirje vaadata:
+        while($stmt->fetc()){
+          //siia read, mis loovad iga kasutaja kohta tabeli rea
+        }
