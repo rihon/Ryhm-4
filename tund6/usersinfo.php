@@ -19,7 +19,7 @@
 		
 	}
 	*/
-	require("../usersinfotable.php");
+	require("../..usersinfotable.php");
 ?>
 
 <!DOCTYPE html>
