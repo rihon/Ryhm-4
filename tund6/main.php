@@ -46,11 +46,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>
-		Andrus Rinde veebiprogemise asjad
+	<?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?>
+		 veebiprogemise asjad
 	</title>
 </head>
 <body>
-	<h1>Andrus Rinde</h1>
+	<h1><?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?></h1>
 	<p>See veebileht on loodud veebiprogrammeerimise kursusel ning ei sisalda mingisugust tõsiseltvõetavat sisu.</p>
 	<p><a href="?logout=1">Logi välja</a>!</p>
 	<p><a href="usersinfo.php">Kasutajate info</a></p>

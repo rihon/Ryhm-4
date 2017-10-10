@@ -1,6 +1,6 @@
 <?php
 	require("functions.php");
-	
+		
 	//kui pole sisseloginud, siis sisselogimise lehele
 	if(!isset($_SESSION["userId"])){
 		header("Location: login.php");
@@ -19,7 +19,7 @@
 		
 	}
 	*/
-
+	require("../usersinfotable.php");
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +37,9 @@
 	<p><a href="main.php">Pealeht</a></p>
 	<hr>
 	<h2>Kõik süsteemi kasutajad</h2>
+	<?php echo createUsersTable(); ?>
+	<hr>
+	<h3>Näidistabel oli selline</h3>
 	<table border="1" style="border: 1px solid black; border-collapse: collapse">
 	<tr>
 		<th>Eesnimi</th><th>perekonnanimi</th><th>e-posti aadress</th>
