@@ -16,8 +16,8 @@
 			$ideaObject->color = $ideaColor;
 		} else {
 				//kui sellist ideed pole, või on kustutatud
-				header("Location: usersideas.php");
-				exit();
+				//header("Location: usersideas.php");
+				//exit();
 		}
 		
 		$stmt->close();
@@ -30,6 +30,7 @@
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		$stmt = $mysqli->prepare("UPDATE vpuserideas SET idea=?, ideacolor=? WHERE id=? AND deleted IS NULL");
 		echo $mysqli->error;
+		 //AND deleted IS NULL
 		$stmt->bind_param("ssi", $idea, $color, $id);
 		if($stmt->execute()){
 			echo "Õnnestus!";

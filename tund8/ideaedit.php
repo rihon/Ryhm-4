@@ -17,18 +17,24 @@
 		header("Location: login.php");
 	}
 	
-	//Loen muudetava mõtte
-	$idea = getSingleIdeaData($_GET["id"]);
+
 	
 	//kas uuendatakse
 	if (isset($_POST["update"])){
 		echo "hakkab uuendama!";
 		echo $_POST["id"];
 		updateIdea($_POST["id"], test_input($_POST["idea"]), $_POST["ideaColor"]);
-		header("Location: ideaedit.php?id=" .$_POST["id"]);
+		header("Location: usersideas.php");
 		exit();
 	}
-
+	
+	
+	//Loen muudetava mõtte
+	if(isset($_GET["id"])){
+		$idea = getSingleIdeaData($_GET["id"]);
+	} else {
+		header("Location: usersideas.php");
+	}
 ?>
 
 <!DOCTYPE html>
