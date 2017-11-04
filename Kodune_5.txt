@@ -1,0 +1,11 @@
+Seekord on vaja veebis oleva näite järgi tekitada fotode üleslaadimise leht.
+1) Lisage oma pealehele (main.php) link uuele lehele! Uue lehe nimeks näiteks: photoupload.php
+2)looge leht (nagu äitena mainisin: photoupload.php)!
+3) Leht peab sarnaselt teistele kontrollima, kas on sisselogitud ja võimaldama väljalogimist. Samuti peab saama pealehele tagasi.
+4) Lisage lehele failide üleslaadimise funktsionaalsus kasutades näidet, mille leiate: https://www.w3schools.com/php/php_file_upload.asp
+NB! Teile vajalik osa algab sealt, kus on alapealkiri "Create The HTML Form"!
+6) Muutke üleslaetavate failide asukoht (kataloog) selliselt, et kõik fotod laetaks ülesse samasse kataloogi, kust pealeht (main.php) alati ühe juhusliku pildi valib!
+7) Muutke teavitused (veateated, õnnestumise teade) nii, et nad oleksid eestikeelesed ja oleksid alati näha ühes kohas veebilehe sees, näiteks pildi üleslaadimise vormi all! Praegu pannakse kõik teated echo käsuga veebilehe ülaserva, kus see pole korrektne.
+
+NB! Arvestage, et greeny.cs.tlu.ee server ei lase üles laadida suuremaid faile, kui 2MB (näites on omakorda piiriks 500kB)! Seega ei saa Te oma lehe toimimist isegi katsetada, kui liiga suuri pilte üritate üles laadida!
+Edu kõigile!
